@@ -615,37 +615,61 @@ window.addEventListener('resize', function() {
 //ここから会話リアルuniv
 let audioQueueuniv = []; // 再生待ちの音声URLを保持するキュー
 
-//追加したところ継続通信
+//ここまで
+
 document.addEventListener('DOMContentLoaded', function() {
-    // IDを生成する関数
-    function generateUserId() {
-        return crypto.randomUUID();
+    // Socket.IOの接続を管理する関数
+    async function initializeSocketConnection() {
+        try {
+            const socket = io.connect("https://unity-test-air1.onrender.com");
+
+            socket.on('connect', function() {
+                console.log('Connected to the server.');
+
+                document.getElementById('sendButton').addEventListener('click', function() {
+                    const text = document.getElementById('textInput').value;
+                    if (text) {
+                        socket.emit('textuniv', { 'text': text, 'id': Id });
+                        console.log('Sent text to the server:', text);
+
+                        // 送信直後にテキストボックスをクリア
+                        document.getElementById('textInput').value = '';
+                        checkAndPlayAudio();
+                    }
+                });
+            });
+
+            return socket;
+        } catch (error) {
+            console.error('Failed to initialize socket connection:', error);
+        }
     }
-    // Socket.IOを使用して特定のユーザーIDに基づくイベントをリッスンする関数
-    function setupEventListenerForUser(Id) {
+
+    // IDを生成し、サーバーからのイベントをリッスンする関数
+    function setupEventListeners(socket, Id) {
+        if (!socket) return;
+
         console.log(`Listening on audio_url_${Id}`);
         socket.on(`audio_url_${Id}`, function(data) {
             console.log('Received audio URL from the server:', data.url);
-            // ここで受け取ったURLを使って何かする
-            const audioUrl = data.url; // 正しくURLを取得
-      console.log("Received audio URL: ", audioUrl);
-      queueAudiouniv(audioUrl); // 修正: 受け取ったURLをキューに追加し、再生を試みる
+            queueAudiouniv(data.url);
         });
+
         socket.on(`response_${Id}`, function(data) {
             console.log('Success:', data.response);
-            responseContainer.textContent = '応答: ' + data.response; // 応答をページに表示
+            document.getElementById('responseContainer').textContent = '応答: ' + data.response;
+
             if (data.global_contentss) {
-          // global_contentss の値を解析する（例: "id: list1,category: 当サイトについて"）
-            const contents = data.global_contentss.split(',').reduce((acc, current) => {
-            const [key, value] = current.split(':');
-            acc[key.trim()] = value.trim();
-            return acc;
-            }, {});
-        
-            console.log('Parsed contents:', contents);
-            answerposition(contents['id'], contents['category']);
-        }
-            // フォーカスを外して画面のズームをリセットする
+                const contents = data.global_contentss.split(',').reduce((acc, current) => {
+                    const [key, value] = current.split(':');
+                    acc[key.trim()] = value.trim();
+                    return acc;
+                }, {});
+
+                console.log('Parsed contents:', contents);
+                answerposition(contents['id'], contents['category']);
+            }
+               // フォーカスを外して画面のズームをリセットする
         document.getElementById('textInput').blur();
         
         // 必要に応じてビューポートをリセットする
@@ -653,29 +677,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    var socket = io.connect("https://unity-test-air1.onrender.com");
-
-    socket.on('connect', function() {
-        console.log('Connected to the server.');
-
-        // サーバーへメッセージ送信の例
-        document.getElementById('sendButton').onclick = function() {
-            var text = document.getElementById('textInput').value;
-            socket.emit('textuniv', { 'text': text, 'id': Id });
-            console.log('Sent text to the server:', text);
-            checkAndPlayAudio();
-            // 送信直後にテキストボックスをクリア
-    document.getElementById('textInput').value = '';
-        };
-    });
-
-    // ユーザーIDの生成とイベントリスナー設定
-    const Id = generateUserId();
+    // ユーザーIDを生成
+    const Id = crypto.randomUUID();
     console.log(`Generated User ID: ${Id}`);
-    setupEventListenerForUser(Id);
 
+    // Socket.IOの接続を初期化し、イベントリスナーを設定
+    initializeSocketConnection().then(socket => {
+        setupEventListeners(socket, Id);
+    });
 });
-//ここまで
 
 function startPlayAudio() {
     if (!isPlaying2) {
