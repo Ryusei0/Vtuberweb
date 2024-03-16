@@ -106,8 +106,8 @@ scene.add(plane);
 
 const radius = 8;
 const videoTextures = [];
-const cardWidth = 3.2;
-const cardHeight = 1.8;
+const cardWidth = 2.56;
+const cardHeight = 1.44;
 // カードの座標を保存する配列
 let cardPositions = [];
 let cardGeometry = new THREE.PlaneGeometry(cardWidth, cardHeight);
@@ -480,17 +480,17 @@ function updateCardPositions() {
         const z = radius * Math.cos(angle); // 円周上のZ座標
 
         // カードを新しい位置に配置
-        card.position.set(x, 2, z);
+        card.position.set(x, 1.7, z);
         card.lookAt(new THREE.Vector3(0, 0, 0)); // カードが原点（カメラの位置）を向くようにする
 
         // カードの座標を保存
-        cardPositions[index] = { x: x, y: 2, z: z };
+        cardPositions[index] = { x: x, y: 1.7, z: z };
     });
 
     // 中心に来るカードの位置を設定する
     const centerCardPosition = cardPositions[currentIndex];
     if (centerCardPosition) {
-        cards[currentIndex].position.set(0, 2, radius);
+        cards[currentIndex].position.set(0, 1.7, radius);
     }
 }
 

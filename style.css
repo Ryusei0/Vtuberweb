@@ -201,9 +201,8 @@ select {
   /* 動画カテゴリー */
   #videoListContainer {
     position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    bottom: 185px;
+    right: 10px;
     z-index: 1000; /* Make sure this is higher than other elements if necessary */
     color: black; /* Or any color you wish */
     text-align: center; /* Center the text within the div */
@@ -333,10 +332,9 @@ select {
 
 @media (max-width: 768px) {
     #videoListContainer {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        transform: translate(-50%, 0%);
+        position: fixed;
+        bottom: 185px;
+        right: 10px;
         z-index: 1000; /* Make sure this is higher than other elements if necessary */
         color: black; /* Or any color you wish */
         text-align: center; /* Center the text within the div */
