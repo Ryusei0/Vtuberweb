@@ -156,10 +156,10 @@ const clock = new THREE.Clock();
 
 // 動画リストの準備
 const videos = [
-    { category: "当サイトについて",title:"list1", name: "ビデオ1",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg", url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg" },
-    { category: "私たちの目指す未来", title:"list2",name: "ビデオ2",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AE%E6%9C%AA%E6%9D%A5.jpg" , url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AE%E6%9C%AA%E6%9D%A5.jpg" },
-    { category: "FirstAIについて", title:"list2",name: "ビデオ0",samnail:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/FirstAI.jpg", url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/FirstAI.jpg" },
-    { category: "事業詳細", title:"list2",name: "ビデオ3",samnail:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E4%BA%8B%E6%A5%AD%E8%A9%B3%E7%B4%B0.jpg" , url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E4%BA%8B%E6%A5%AD%E8%A9%B3%E7%B4%B0.jpg" },
+    { category: "大学について",title:"list1", name: "ビデオ1",samnail:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%A4%A7%E5%AD%A6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.jpg", url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%A4%A7%E5%AD%A6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.jpg" },
+    { category: "作業療法学専攻", title:"list2",name: "ビデオ2",samnail:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E4%BD%9C%E6%A5%AD%E7%99%82%E6%B3%95.png" , url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E4%BD%9C%E6%A5%AD%E7%99%82%E6%B3%95.png" },
+    { category: "理学療法学専攻", title:"list2",name: "ビデオ0",samnail:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95.png", url: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/FirstAI.jpg" },
+    { category: "和歌山の未来", title:"list2",name: "ビデオ3",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%92%8C%E6%AD%8C%E5%B1%B1%E3%81%AB%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8B%E3%82%99%E5%BF%85%E8%A6%81%E3%81%A6%E3%82%99%E3%81%99.jpg" , url:  "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%92%8C%E6%AD%8C%E5%B1%B1%E3%81%AB%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8B%E3%82%99%E5%BF%85%E8%A6%81%E3%81%A6%E3%82%99%E3%81%99.jpg" },
     // 他の動画をここに追加
 ];
 
@@ -167,7 +167,7 @@ const videos = [
 // 複数のリストを保持する配列
 const allLists = [
     {
-        id: "当サイトについて",
+        id: "和歌山の未来",
         videos: [
             {planeid:1,category
                 :"当サイトについて",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
@@ -187,7 +187,20 @@ const allLists = [
         ]
     },
     {
-        id: "私たちの目指す未来",
+        id: "大学について",
+        videos: [
+            {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%A4%A7%E5%AD%A6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88_20240215_085026_858dab12be6142398953cfd2297c9480.mp3",time:17},
+                {planeid:1,category:"作業療法学専攻",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E4%BD%9C%E6%A5%AD%E7%99%82%E6%B3%95.png",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/2.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%B0%8E%E5%85%A5%EF%BC%92_20240216_032001_465ed5af894146c09e7c40d5b9f48f81.mp3",time:12},
+         {planeid:1,category:"理学療法学専攻",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95.png",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/0.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%83%98%E3%82%9A%E3%82%A4%E3%83%B3_20240216_032031_b3ab9655d6464c5d84b285e16366779d.mp3",time:17},
+                {planeid:1,category:"和歌山の未来",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%92%8C%E6%AD%8C%E5%B1%B1%E3%81%AB%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8B%E3%82%99%E5%BF%85%E8%A6%81%E3%81%A6%E3%82%99%E3%81%99.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/3.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E8%A7%A3%E6%B1%BA%E3%81%B8_20240216_032100_0901556cc47146f2b45982d016f93958.mp3",time:12},
+        ]
+    },
+    {
+        id: "作業療法学専攻",
         videos: [
             {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88_20240215_085026_858dab12be6142398953cfd2297c9480.mp3",time:17},
@@ -200,7 +213,7 @@ const allLists = [
         ]
     },
     {
-        id: "FirstAIについて",
+        id: "理学療法学専攻",
         videos: [
             {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88_20240215_085026_858dab12be6142398953cfd2297c9480.mp3",time:17},
@@ -213,19 +226,18 @@ const allLists = [
         ]
     },
     {
-        id: "事業詳細",
+        id: "当サイトについて",
         videos: [
-            {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+            {planeid:1,category:"当サイトについて",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%A4%A7%E5%AD%A6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.jpg",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88_20240215_085026_858dab12be6142398953cfd2297c9480.mp3",time:17},
-                {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                {planeid:1,category:"作業療法学専攻",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E4%BD%9C%E6%A5%AD%E7%99%82%E6%B3%95.png",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/2.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%B0%8E%E5%85%A5%EF%BC%92_20240216_032001_465ed5af894146c09e7c40d5b9f48f81.mp3",time:12},
-         {planeid:1,category:"学校生活",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+         {planeid:1,category:"理学療法学専攻",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95.png",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/0.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%83%98%E3%82%9A%E3%82%A4%E3%83%B3_20240216_032031_b3ab9655d6464c5d84b285e16366779d.mp3",time:17},
-                {planeid:1,category:"学校生活",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                {planeid:1,category:"和歌山の未来",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E5%A4%A7%E5%AD%A6/%E5%92%8C%E6%AD%8C%E5%B1%B1%E3%81%AB%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8B%E3%82%99%E5%BF%85%E8%A6%81%E3%81%A6%E3%82%99%E3%81%99.jpg",url
                 :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/3.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E8%A7%A3%E6%B1%BA%E3%81%B8_20240216_032100_0901556cc47146f2b45982d016f93958.mp3",time:12},
         ]
     },
-    // 他のリストをここに追加...
 ];
 
 // alternateVideosの初期化

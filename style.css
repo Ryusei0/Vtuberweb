@@ -297,7 +297,7 @@ select {
         height: auto; /* 高さを自動調整 */
         object-fit: contain; /* コンテンツをコンテナ内に収める */
         position: absolute; /* 要素をページから独立させる */
-        top: 30px; /* 要素の上端をビューポートの中心に合わせる */
+        top: 3px; /* 要素の上端をビューポートの中心に合わせる */
         left: 50%; /* 要素の左端をビューポートの中心に合わせる */
         transform: translate(-50%, 0%); /* 要素を中央に配置 */
     }
