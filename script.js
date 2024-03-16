@@ -57,7 +57,7 @@ function resetViewport() {
         viewportMeta.name = "viewport";
         document.getElementsByTagName("head")[0].appendChild(viewportMeta);
     }
-    viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    viewportMeta.setAttribute("content","width=device-width, initial-scale=1.0, user-scalable=no");
 }
 
 const scene = new THREE.Scene();
@@ -480,17 +480,17 @@ function updateCardPositions() {
         const z = radius * Math.cos(angle); // 円周上のZ座標
 
         // カードを新しい位置に配置
-        card.position.set(x, 1.7, z);
+        card.position.set(x, 1.8, z);
         card.lookAt(new THREE.Vector3(0, 0, 0)); // カードが原点（カメラの位置）を向くようにする
 
         // カードの座標を保存
-        cardPositions[index] = { x: x, y: 1.7, z: z };
+        cardPositions[index] = { x: x, y: 1.8, z: z };
     });
 
     // 中心に来るカードの位置を設定する
     const centerCardPosition = cardPositions[currentIndex];
     if (centerCardPosition) {
-        cards[currentIndex].position.set(0, 1.7, radius);
+        cards[currentIndex].position.set(0, 1.8, radius);
     }
 }
 
@@ -634,7 +634,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         // 送信直後にテキストボックスをクリア
                         document.getElementById('textInput').value = '';
-                        checkAndPlayAudio();
+                        if (audioPlaybackAllowed) {
+                            checkAndPlayAudio();
+                        } else {
+                            console.log('Audio playback not allowed by the user.');
+                        }
                     }
                 });
             });
@@ -751,8 +755,6 @@ function playNextAudiouniv() {
     isPlaying2 = false; // キューが空になったら再生中フラグを下ろす
   }
 }
-
-// ここまで
 
 // 修正されたanswerposition関数（仮の実装）
 function answerposition(id, category) {
