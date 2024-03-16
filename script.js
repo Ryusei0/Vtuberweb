@@ -652,7 +652,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Listening on audio_url_${Id}`);
         socket.on(`audio_url_${Id}`, function(data) {
             console.log('Received audio URL from the server:', data.url);
-            queueAudiouniv(data.url);
+            if (audioPlaybackAllowed) {
+                queueAudiouniv(data.url);
+            } else {
+                console.log('Audio playback not allowed by the user.');
+            }
         });
 
         socket.on(`response_${Id}`, function(data) {
