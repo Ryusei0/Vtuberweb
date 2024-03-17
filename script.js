@@ -63,7 +63,7 @@ function resetViewport() {
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const y = 0;
-camera.position.set(0, y, 12.5);
+camera.position.set(0, y, 12.5);//下にも使ってる（更新）
 // グローバル変数の宣言部分
 let currentAudio = null;
 let currentVideoElement = null; // 動画要素を追跡するために追加
@@ -215,14 +215,52 @@ const allLists = [
     {
         id: "理学療法学専攻",
         videos: [
-            {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
-                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88_20240215_085026_858dab12be6142398953cfd2297c9480.mp3",time:17},
-                {planeid:1,category:"大学について",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
-                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/2.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%B0%8E%E5%85%A5%EF%BC%92_20240216_032001_465ed5af894146c09e7c40d5b9f48f81.mp3",time:12},
-         {planeid:1,category:"学校生活",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
-                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/0.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E3%83%98%E3%82%9A%E3%82%A4%E3%83%B3_20240216_032031_b3ab9655d6464c5d84b285e16366779d.mp3",time:17},
-                {planeid:1,category:"学校生活",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
-                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/3.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E8%A7%A3%E6%B1%BA%E3%81%B8_20240216_032100_0901556cc47146f2b45982d016f93958.mp3",time:12},
+            {planeid:1,category:"１：理学療法とは",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.1.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.1_20240317_122546_3a77fdeef63e4cadb875c9da016a9539.mp3",time:17},
+                {planeid:1,category:"２：理学療法士とは",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.2.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.2_20240317_122621_edee0f2ed8d54f558302397a243361c0.mp3",time:12},
+         {planeid:1,category:"３：理学療法の例１",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.3.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.3_20240317_060639_b45c1a15a2c349d88e3458cd1579125b.mp3",time:17},
+                {planeid:1,category:"４：理学療法の例１",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.4.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.4_20240317_060654_2f93f9b949e14f68be757648ce2043ad.mp3",time:12},
+                {planeid:1,category:"５：理学療法の例２",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.5.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.5_20240317_060711_ee1810e1a1d8490c9d2441f5e401345c.mp3",time:17},
+                {planeid:1,category:"６：理学療法の例２",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.6.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.6_20240317_060731_4d97b33d84af440eb42ff1f70a7793c3.mp3",time:12},
+         {planeid:1,category:"７：理学療法の例３",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.7.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.7_20240317_060816_578aa7b36cbf4fe4a056a573e6fae9e8.mp3",time:17},
+                {planeid:1,category:"８：理学療法の例３",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.8.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.8_20240317_060833_8aa8a40ef5e74d0cb23b3e1777212a1f.mp3",time:12},
+                {planeid:1,category:"９：理学療法の例４",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.9.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.9_20240317_060857_f3f3009e55844d60b1f7b84b701720ac.mp3",time:17},
+                {planeid:1,category:"１０：理学療法の例４",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.10.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.10_20240317_060916_98d0d8d4d1fc460bb3f9992565665712.mp3",time:12},
+         {planeid:1,category:"１１：理学療法",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.11.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.11_20240317_060940_e7f8ff6bd2fe4c3a96fa64efdf384d36.mp3",time:17},
+                {planeid:1,category:"１２：理学療法で学ぶこと",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.12.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.12_20240317_060959_a2e75a5d93bd4d9f894dd48380406d58.mp3",time:12},
+                {planeid:1,category:"１３：リハビリ",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.13.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.13_20240317_061014_50146caf70e54cd99f203cf31ef10d13.mp3",time:17},
+                {planeid:1,category:"１４：リハビリの工夫",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.14.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.14_20240317_061029_34d97da3018e49cc859ecda59452dd85.mp3",time:12},
+         {planeid:1,category:"１５：最新技術の活用",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.15.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.15_20240317_061046_81c1c0e5348643379cfa46eaa43cfe80.mp3",time:17},
+                {planeid:1,category:"１６：理学療法の面白さ",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.16.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.16_20240317_061104_bd265607b52042f69c36fecd38d1eeb4.mp3",time:12},
+                {planeid:1,category:"１７：理学療法士になるには？",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.2.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.17_20240317_061125_ff3c430f5f184f1fad57e885887866ad.mp3",time:17},
+                {planeid:1,category:"１８：理学療法士になるまで",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.18.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.18_20240317_061152_c886926e52d042bebd3465894b2abd88.mp3",time:12},
+         {planeid:1,category:"１９：弊学の良さ",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.19.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.19_20240317_061209_2a9c0547ab484a2db24c44bafa626e83.mp3",time:17},
+                {planeid:1,category:"２０：病院での仕事",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.20.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.20_20240317_061236_3cd49460fb834a109a7edbec51b4f94b.mp3",time:12},
+                {planeid:1,category:"２１：スポーツチームでの仕事",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.21.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.21_20240317_061253_a9e2bc48146a42498949643e6da0cfd1.mp3",time:17},
+                {planeid:1,category:"２２：ホームケア",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.22.mp4",text:"私たちの強みは、圧倒的に賢いことです。情報量の制限はなく、あなたと1対1のコミュニケーションを実現します。何か知りたいことがあれば、下のテキストボックスから質問してくださいね。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.22_20240317_061313_49e87b657d4f45589421bf9b2d49501f.mp3",time:12},
+         {planeid:1,category:"理学療法の世界",samnail: "https://s3.ap-northeast-3.amazonaws.com/testunity1.0/image/%E6%AC%A1%E4%B8%96%E4%BB%A3%E3%82%B5%E3%82%A4%E3%83%88.jpg",url
+                :"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/videos/%E5%A4%A7%E5%AD%A6%E3%80%80%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/1.23.mp4",text:"当サイトは、次世代の会話型ウェブサイトです。従来のサイトと違い、あなたが情報を探したり、欲しかった情報が見つけられずに、再検索したりする必要はありません。圧倒的に詳しく、そして分かりやすく、あなたの欲しい情報を届けます。",mp3:"https://s3.ap-northeast-3.amazonaws.com/testunity1.0/audios/%E5%A4%A7%E5%AD%A6%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95/%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%951.23_20240317_061333_0d992a38f097458aa5e08b4d313d6933.mp3",time:17},
         ]
     },
     {
@@ -309,7 +347,7 @@ function playCenterMedia(index) {
         currentAudio.currentTime = 0;
     }
     // 動画の再生ロジックをここに追加
-    if (mediaInfo.url.endsWith('.mp4')) {
+    if (mediaInfo.url.endsWith('.mp4') || mediaInfo.url.endsWith('.mov')) {
         const videoPlayer = document.getElementById('videoPlayer');
         videoPlayer.src = mediaInfo.url; // メディアソースを設定
         videoPlayer.load(); // メディアをロード
@@ -352,7 +390,7 @@ function displayMedia(url) {
     const extension = url.split('.').pop().toLowerCase();
 
     // 動画または画像ファイルの場合の処理を分ける
-    if (extension === 'mp4' || extension === 'webm') {
+    if (extension === 'mp4' || extension === 'webm' || extension === 'mov') {
         // 動画ファイルの場合
         videoPlayer.src = url;
         videoPlayer.style.display = 'block';
@@ -423,6 +461,15 @@ function updateCategoryLabel() {
     } else {
         categoryLabel.textContent = 'カテゴリーが見つかりません';
     }
+    if (audioPlaybackAllowed) {
+        if ('vibrate' in navigator) {
+            // 短い振動（200ミリ秒）を実行
+            navigator.vibrate(200);
+        }
+    } else {
+        console.log('振動禁止');
+    }
+
 }
 
 //ビデオプレーンの切り替え
@@ -441,31 +488,14 @@ function regenerateCards(items) {
     videoTextures.length = 0;
 
     items.forEach((item, index) => {
-        let texture;
-        const isVideo = item.url.endsWith('.mp4');
-
-        if (isVideo) {
-            // 動画要素の作成
-        const videoElement = document.createElement('video');
-        videoElement.src = item.url;
-        videoElement.crossOrigin = "anonymous";
-        videoElement.preload = 'auto';
-        // 動画の自動再生やループを無効化
-        videoElement.muted = true; // ミュートは必要ですが、自動再生はしません
-        videoElement.loop = false; // ループを無効化
-
-        // テクスチャを動画から作成
-        texture = new THREE.VideoTexture(videoElement);
-        } else {
-            // 画像の場合、THREE.TextureLoaderを使用してテクスチャをロード
-            texture = new THREE.TextureLoader().load(item.url);
-        }
+        // 画像のロード
+        const texture = new THREE.TextureLoader().load(item.samnail); // 'thumbnail'属性を使用してテクスチャをロード
 
         videoTextures.push(texture);
 
         const cardMaterial = new THREE.MeshBasicMaterial({ map: texture });
         const card = new THREE.Mesh(cardGeometry, cardMaterial);
-        card.userData = { index: index, type: isVideo ? 'video' : 'image', title: item.title };
+        card.userData = { index: index, type: 'image', title: item.title }; // すべて画像として扱う
 
         // シーンにカードを追加
         scene.add(card);
@@ -474,6 +504,16 @@ function regenerateCards(items) {
 
     currentIndex = 0; // 最初のカードを中心に設定
     updateCardPositions(); // カードの位置を更新
+}
+
+
+// カードの位置を更新した後、カメラを初期位置に戻す
+function resetCameraPosition() {
+    
+    camera.position.set(0, y, 12.5);//下にも使ってる（更新）
+
+    // カメラがシーンの中心を向くようにする
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 }
 
 
@@ -504,6 +544,7 @@ function updateCardPositions() {
     if (centerCardPosition) {
         cards[currentIndex].position.set(0, 1.8, radius);
     }
+    resetCameraPosition();
 }
 
 
@@ -526,22 +567,42 @@ function updateAlternateVideosBasedOnClosestCard() {
     }
 }
 
+// カメラに最も近いカードのtitle属性を基にalternateVideosを更新する関数
+function backupdateAlternateVideosBasedOnClosestCard() {
+    
+    // カメラに最も近いカードのtitle属性（リストID）を取得
+    const closestCardTitle = videos[0].category;
+    
+    alternateVideos = [];
+
+    // targetIdに一致するリストを探す
+    const targetList = allLists.find(list => list.id === closestCardTitle);
+
+    // 該当するリストが見つかった場合、そのvideosをalternateVideosに設定
+    if (closestCardTitle) {
+        alternateVideos = targetList.videos;
+    }
+}
+
 document.getElementById('changeListButton').addEventListener('click', () => {
     // リストの状態を切り替える
     isOriginalList = !isOriginalList;
 
-    updateAlternateVideosBasedOnClosestCard();
+    // ボタンのテキストと表示状態を切り替える
+    if (isOriginalList) {
+        backupdateAlternateVideosBasedOnClosestCard();
     // 新しいリストでカードを再生成
     const newVideos = isOriginalList ? videos : alternateVideos;
     regenerateCards(newVideos);
-
-    // ボタンのテキストと表示状態を切り替える
-    if (isOriginalList) {
         document.getElementById('playCenterVideo').style.display = 'none'; // 「再生」ボタンを非表示にする
        // document.getElementById('showModalButton').style.display = 'none'; // 「詳しく見る」ボタンを非表示にする
         document.getElementById('changeListButton').textContent = '詳細';
         stopMedia(); // ユーザーが停止を要求
     } else {
+        updateAlternateVideosBasedOnClosestCard();
+    // 新しいリストでカードを再生成
+    const newVideos = isOriginalList ? videos : alternateVideos;
+    regenerateCards(newVideos);
         document.getElementById('playCenterVideo').style.display = 'block'; // 「再生」ボタンを表示する
         document.getElementById('changeListButton').textContent = '戻る'; // ボタンのテキストを「戻る」に変更
      //   document.getElementById('showModalButton').style.display = 'block'; // 「戻る」ボタンを表示する
